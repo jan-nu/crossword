@@ -121,6 +121,9 @@
 			&.active {
 				background-color: rgba($violet, .7);
 			}
+			&.error {
+				border: 2px solid red;
+			}
 		}
 	}
 	&__num {
@@ -337,6 +340,16 @@
 			border-bottom: 2px solid $violet;
 		}
 	}
+	&__edit {
+		width: 24px;
+		height: 24px;
+		background: url(../img/sprite.png) no-repeat -28px 0;
+		display: inline-block;
+		vertical-align: top;
+		&:hover {
+			// background: url(../img/sprite.png) no-repeat -28px 0;
+		}
+	}
 	&__desc {
 		padding: 7px 0 0;
 		font: 400 16px/20px "Roboto", sans-serif;
@@ -466,6 +479,18 @@
 	display: none;
 	&__txt {
 		font-size: 40px;
+	}
+}
+
+.cross-popup-error {
+	width: 506px;
+	height: 318px;
+	display: none;
+	&__txt {
+		font-size: 40px;
+	}
+	&__error {
+		font-size: 32px;
 	}
 }
 

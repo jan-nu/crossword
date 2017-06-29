@@ -2,7 +2,7 @@
 <html class="no-js" lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>Crossword - Administrator</title>
+    <title>Crossword - List</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -133,54 +133,62 @@
       <!-- content -->
       <div class="content content-crossword">        
           <!-- crossword -->
-          <div class="medium crossword crossword-admin">
-            <!-- max-wrap -->
-            <div class="max-wrap">
-              <h2 class="crossword__title">Создание кроссворда</h2>
-              <div class="crossword-info">
-                <div class="crossword-info__left">
-                  <div class="crossword-info__caption">
-                    <input type="text" name="crossword-caption" id="crossword-caption" class="input crossword-input crossword-info__caption-input" placeholder="Введите название кроссворда">
+          <div class="medium crossword">
+            <div class="select-cross">
+              <div class="select-cross__max-wrap">
+                <div class="select-cross__top clearfix">
+                  <h1 class="select-cross__title">Выбор кроссворда</h1>
+                  <div class="select-cross__create-new">
+                    <a href="/" class="btn btn-violet btn-create-cross select-cross__create-btn">Создать кроссворд</a>
                   </div>
-                  <div class="crossword-info__desc">
-                    <textarea name="crossword-desc" id="crossword-desc" class="input crossword-input crossword-info__desc-input" placeholder="Введите описание кроссворда"></textarea>
-                  </div>
-                </div><!-- /crossword-info__info-left -->
-                <div class="crossword-info__right">
-                  <a href="#" class="btn btn-violet btn-create-cross crossword-info__create-btn">Создать кроссворд</a>
-                </div><!-- /crossword-info__info-right -->                
-              </div><!-- /crossword-info -->
-
-              <div class="crossword-area">
-                <div class="crossword-field">                 
-                </div><!-- /crossword-field -->
-
-                <div class="cross-questions">
-                  <div class="cross-questions__block horizontal">
-                    <div class="cross-questions__caption">По горизонтали:</div>
-                    <div class="cross-questions__block-wrap horizontal">
-                      <ul class="cross-questions__list">
-
-                      </ul><!-- /cross-questions__list -->
-                    </div><!-- /cross-questions__block-wrap -->
-                  </div><!-- /cross-questions__block -->
-
-                  <div class="cross-questions__block vertical">
-                    <div class="cross-questions__caption">По вертикали:</div>
-                    <div class="cross-questions__block-wrap vertical">
-                      <ul class="cross-questions__list">
-
-                      </ul><!-- /cross-questions__list -->
-                    </div><!-- /cross-questions__block-wrap -->
-                  </div><!-- /cross-questions__block -->
-                  
-                </div><!-- /cross-questions -->
+                </div>
+                <div class="select-cross__wrap">
+                  <div class="select-cross__list-wrap">
+                    <ul class="select-cross__list">
+                      <li class="select-cross__item">
+                        <div class="select-cross__item-wrap">
+                          <span class="select-cross__num">1.</span>
+                          <div class="select-cross__info">
+                            <a href="/game.html" class="select-cross__caption">Кроссворд 1</a>
+                            <a href="#" class="select-cross__edit"></a>
+                            
+                            <div class="select-cross__desc">Тут будет отображаться краткое описание данного кроссворда. При нажатии на кнопку "Разгадать" начнется процесс разгадывания.</div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="select-cross__item">
+                        <div class="select-cross__item-wrap">
+                          <span class="select-cross__num">2.</span>
+                          <div class="select-cross__info">
+                            <a href="/game.html" class="select-cross__caption">Кроссворд 2</a>
+                            <a href="#" class="select-cross__edit"></a>
+                            <div class="select-cross__desc">Тут будет отображаться краткое описание данного кроссворда. При нажатии на кнопку "Разгадать" начнется процесс разгадывания.</div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="select-cross__item">
+                        <div class="select-cross__item-wrap">
+                          <span class="select-cross__num">3.</span>
+                          <div class="select-cross__info">
+                            <a href="/game.html" class="select-cross__caption">Кроссворд 3</a>
+                            <a href="#" class="select-cross__edit"></a>
+                            <div class="select-cross__desc">Тут будет отображаться краткое описание данного кроссворда. При нажатии на кнопку "Разгадать" начнется процесс разгадывания.</div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul><!-- /select-cross__list -->
+                  </div><!-- /select-cross__list-wrap -->
+                </div><!-- /select-cross__wrap -->
                 
-              </div><!-- /crossword-area -->
+              </div><!-- /select-cross__max-wrap -->
+            </div><!-- /select-crossword -->
 
-            </div><!-- /max-wrap -->            
-          </div><!-- /crossword -->        
+                      
+          </div><!-- /crossword -->  
+
       </div><!-- /content -->
+
+      
 
 
 
@@ -333,7 +341,6 @@
     <script src="assets/js/libs.min.js"></script>
     <script src="assets/js/crosswords.js"></script>
     <script src="assets/js/cross-game.js"></script>
-    <script src="assets/js/cross-admin.js"></script>
 
   </body>
 </html>

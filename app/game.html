@@ -134,25 +134,7 @@
       <div class="content content-crossword">        
           <!-- crossword -->
           <div class="medium crossword crossword-game">
-            <div class="select-cross">
-              <div class="select-cross__max-wrap">
-                <div class="select-cross__top clearfix">
-                  <h1 class="select-cross__title">Выбор кроссворда</h1>
-                  <div class="select-cross__create-new">
-                    <a href="/" class="btn btn-violet btn-create-cross select-cross__create-btn">Создать кроссворд</a>
-                  </div>
-                </div>
-                <div class="select-cross__wrap">
-                  <div class="select-cross__list-wrap">
-                    <ul class="select-cross__list">
-                      
-                    </ul><!-- /select-cross__list -->
-                  </div><!-- /select-cross__list-wrap -->
-                </div><!-- /select-cross__wrap -->
-                
-              </div><!-- /select-cross__max-wrap -->
-            </div><!-- /select-crossword -->
-            <div class="play-cross hidden">
+            <div class="play-cross">
               <!-- max-wrap -->
               <div class="max-wrap">
                 <div class="play-cross__info">
@@ -225,6 +207,16 @@
               <div class="cross-popup-giveup__txt">Очень жаль...</div>
               <div class="cross-popup-end__buttons">
                 <a href="#" class="btn-white play-again" id="play-again">попробовать еще раз</a>
+              </div>
+            </div>
+          </div><!-- /cross-popup-end -->
+
+          <div class="cross-popup-error cross-popup">
+            <div class="cross-popup__inner">
+              <div class="cross-popup__title">Есть ошибки!</div>
+              <div class="cross-popup-error__error">Не все слова отгаданы верно.</div>
+              <div class="cross-popup-end__buttons">
+                <a href="#" class="btn-white play-continue" id="play-continue">Продолжить разгадывать</a>
               </div>
             </div>
           </div><!-- /cross-popup-end -->
@@ -386,7 +378,7 @@
     <script src="assets/components/jquery/jquery.min.js"></script>
     <script src="assets/js/libs.min.js"></script>
     <script src="assets/js/crosswords.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/cross-game.js"></script>
 
   </body>
 </html>

@@ -35,7 +35,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('js',function(){
-  gulp.src('src/js/scripts.js')
+  gulp.src('src/js/cross-game.js')
     // .pipe(jshint('.jshintrc'))
     // .pipe(jshint.reporter('default'))
     // .pipe(header(banner, { package : package }))
@@ -43,6 +43,11 @@ gulp.task('js',function(){
     // .pipe(uglify())
     // .pipe(header(banner, { package : package }))
     // .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('app/assets/js'))
+    .pipe(browserSync.reload({stream:true, once: true}));
+
+  gulp.src('src/js/cross-admin.js')
+    .pipe(gulp.dest('app/assets/js'))
     .pipe(gulp.dest('app/assets/js'))
     .pipe(browserSync.reload({stream:true, once: true}));
 });

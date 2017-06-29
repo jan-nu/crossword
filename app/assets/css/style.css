@@ -474,6 +474,8 @@ th {
       background-color: #6a396a; }
       .cross-cell__input.input.game.active {
         background-color: rgba(106, 57, 106, 0.7); }
+      .cross-cell__input.input.game.error {
+        border: 2px solid red; }
   .cross-cell__num {
     position: absolute;
     left: 0;
@@ -647,6 +649,13 @@ th {
   .select-cross__caption:hover {
     border-bottom: 2px solid #6a396a; }
 
+.select-cross__edit {
+  width: 24px;
+  height: 24px;
+  background: url(../img/sprite.png) no-repeat -28px 0;
+  display: inline-block;
+  vertical-align: top; }
+
 .select-cross__desc {
   padding: 7px 0 0;
   font: 400 16px/20px "Roboto", sans-serif; }
@@ -740,6 +749,15 @@ th {
   display: none; }
   .cross-popup-giveup__txt {
     font-size: 40px; }
+
+.cross-popup-error {
+  width: 506px;
+  height: 318px;
+  display: none; }
+  .cross-popup-error__txt {
+    font-size: 40px; }
+  .cross-popup-error__error {
+    font-size: 32px; }
 
 ::-moz-selection {
   background: #333;
