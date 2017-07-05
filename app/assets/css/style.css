@@ -475,7 +475,7 @@ th {
       .cross-cell__input.input.game.active {
         background-color: rgba(106, 57, 106, 0.7); }
       .cross-cell__input.input.game.error {
-        border: 2px solid red; }
+        border: 2px solid #f98a3e; }
   .cross-cell__num {
     position: absolute;
     left: 0;

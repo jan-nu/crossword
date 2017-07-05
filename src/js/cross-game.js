@@ -25,6 +25,17 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
   $(function () {  	
 
     selectedWord['cells'] = [];
+
+    // Поиск и замена всех вхождений подстроки в строке
+    String.prototype.replaceAll = function(search, replacement) {
+      var target = this;
+      return target.replace(new RegExp(search, 'g'), replacement);
+    };
+
+    // Корректная сортировка чисел
+    function sortNumber(a,b) {
+       return a - b;
+    }
   	
 
   	// Запуск таймера игры
@@ -163,11 +174,7 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
   		// Сортировка индексов ячеек выбранного слова по возрастанию
   		selectedWord['cells'].sort(sortNumber);
   	}
-
-  	// Корректная сортировка чисел
-  	function sortNumber(a,b) {
-		   return a - b;
-		}
+  	
 
   	// Подсветка столбика
   	function highlightColumn(index) {
@@ -251,35 +258,6 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
   		})
   	}
 
-  	// Перевод фокуса с ячейки (не используется)
-  	function loseFocusCellsGame() {
-			$(document).on('focusout', '.cross-cell__input.game', function() {
-	    	// var index = $(this).closest('.cross-cell').data('cellindex');
-	    	//$('.cross-cell__input.game').removeClass('active');
-	    });
-  	} 	
-
-  	// // Загрузка списка кроссвордов для выбора
-  	// function loadCrossList() {
-  	// 	$('.select-cross__item').remove();
-  	// 	for(var i = 0; i<crosswords.length; i++) {
-  	// 		var cross = crosswords[i],
-  	// 				crossTitle = crosswords[i]['title'],
-  	// 				crossDesc = crosswords[i]['desc'];
-
-  	// 		var item = '<li class="select-cross__item">\
-   //                    <div class="select-cross__item-wrap">\
-   //                      <span class="select-cross__num">' + (i+1) + '.</span>\
-   //                      <div class="select-cross__info">\
-   //                        <a href="#" class="select-cross__caption">' + crossTitle + '</a>\
-   //                        <div class="select-cross__desc">' + crossDesc + '</div>\
-   //                      </div>\
-   //                    </div>\
-   //                  </li>';
-
-   //      $('.select-cross__list').append(item);
-  	// 	}
-  	// }
 
   	// Инициализация ячеек для игры
   	function initCellsGame() {
@@ -425,6 +403,7 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
 
   	// Показ сообщения об ошибках в заполнении
   	function showError() {
+      $(':focus').blur();
 			$('.cross-popup-overlay').show();
 			$('.cross-popup-error').show();
 			$('#play-continue').on('click', function(e) {
@@ -448,27 +427,15 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
 
   	// Разгадывание выбранного кроссворда
   	function playCrossword() {
-  		//curCross = crosswords[index];
   		$('.play-cross__title').text(curCross['title']);
   		cells = curCross['cells'];
   		initCellsGame();
   		startTimer();
-  		hightlightCellsGame();
-  		loseFocusCellsGame();
+  		hightlightCellsGame();  		
   		fillCrossword();
   		giveup();
-  		// playAgain();
   	}
 
-  	// Начать игру заново
-  	// function playAgain() {
-  	// 	$('.play-again').on('click', function(e) {
-  	// 		e.preventDefault();
-			// 	$('.cross-popup-overlay, .cross-popup-end, .cross-popup-giveup').hide();
-			// 	$('.select-cross').removeClass('hidden');
-			// 	$('.play-cross').addClass('hidden');
-  	// 	})
-  	// }
 
   	// Сдаться
   	function giveup() {
@@ -478,32 +445,18 @@ var input = '<input type="text" class="input cross-cell__input" maxlength="1" sp
   		})
   	}
 
-  	// Начало игры
-  	// function startGame() {
-			// $(document).on('click', '.select-cross__caption', function(e) {
-			// 	e.preventDefault();
-			// 	$('.select-cross').addClass('hidden');
-			// 	$('.play-cross').removeClass('hidden');
-			// 	var index = $(this).closest('.select-cross__item').index();
-			// 	playCrossword(index);
-			// });
-  	// }  	  	
+    // Игра
+    function startGame() {
+      $(".select-cross__list-wrap").mCustomScrollbar();
+
+      if($('.crossword-game').length) {     
+        $(".cross-questions__block-wrap").mCustomScrollbar();
+        playCrossword();
+      } 
+    }
+
+    startGame();		
 		
-
-		$(".select-cross__list-wrap").mCustomScrollbar();
-  	
-  	// Игра
-  	if($('.crossword-game').length) {			
-			// loadCrossList();
-			$(".cross-questions__block-wrap").mCustomScrollbar();
-			// startGame();
-
-			// Временно
-			playCrossword();
-
-  	}
-  	
-
 
   });
 

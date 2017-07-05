@@ -71,15 +71,7 @@
 	  					curCell.append(number);
 							curCell.find('.cross-cell__num').data('cellindex', curIndex);
 							curCell.find('.cross-cell__num').text(cells[curIndex]['number']);
-	  				}
-	  				
-	  				// Если ячейка является частью слова, отмечаем это классом
-	  				// if(cells[curIndex]['horizontalWord']) {
-							// curCell.addClass('horizontal');
-	  				// }
-	  				// if(cells[curIndex]['verticalWord']) {
-	  				// 	curCell.addClass('vertical');
-	  				// }	  				
+	  				}  				
 	  			}
 	  		}
 	  	}
@@ -96,8 +88,6 @@
 			cells[index]['isVertical'] = false;
 			cells[index]['horizontalWord'] = false;
 	  	cells[index]['verticalWord'] = false;
-			// cells[index]['taskHorizontal'] = '';
-			// cells[index]['taskVertical'] = '';
   	}
 
   	// Очистка номера ячейки
@@ -105,10 +95,6 @@
   		cells[index]['number'] = '';
 			cells[index]['isHorizontal'] = false;
 			cells[index]['isVertical'] = false;
-			// cells[index]['horizontalWord'] = false;
-	  	// cells[index]['verticalWord'] = false;
-			// cells[index]['taskHorizontal'] = '';
-			// cells[index]['taskVertical'] = '';
   	}
 
   	// Сохранение значения одной ячейки
@@ -505,7 +491,6 @@
   	// Перевод фокуса с ввода описания
   	function loseFocusDesc() {
   		$(document).on('focusout', '.cross-questions__item-desc', function() {
-	    	// var index = $(this).closest('.cross-questions__item').data('cellindex');
 	    	$('.cross-cell__input').removeClass('active');
 	    });
   	}  	
@@ -554,7 +539,7 @@
 		  		}
 		  	}
 
-		  	// Сохранение кроссворда в файл
+		  	// Сохранение кроссворда
   			var data = {};
 
   			var id = getIdFromUrl(window.location.href);
@@ -563,31 +548,21 @@
   			}
   			data['title'] = $('#crossword-caption').val();
   			data['desc'] = $('#crossword-desc').val();
-  			// data['cells'] = cells;
-
   			data['cells'] = JSON.stringify(cells).replace('[','').replace(']','');
 
-				// var json = JSON.stringify(data);
-				// var blob = new Blob([json], {type: "application/json"});
-				// var url  = URL.createObjectURL(blob);
-
-				// var a = document.createElement('a');
-				// a.download    = "crossword.json";
-				// a.href        = url;
-				// a.click();
-
 				$.ajax({
-					url: 'crosswordsaver.html',
+					url: 'mediacenter/krossvordyi/crosswordsaver.html',
 					type: 'POST',
 					data: data,
 					success: function(res) {
 						var result = jQuery.parseJSON(res);
 						alert(result.msg);
 
-					if(!id) {
-						window.location.href = window.location.href + '?id='+result.id;
-					}
-
+						// Если результат успешный и кроссворд создан (пустой id),
+						// то переходим на страницу редактирования
+						if((!id) && (result.success)) {
+							window.location.href = window.location.href + '?id='+result.id;
+						}
 					}
 				})
 
@@ -597,7 +572,6 @@
 
   	// Редактирование кроссворда
   	function crossEdit() {
-  		// curCross = crosswords[index];
   		cells = curCross['cells'];
 
 			$('.crossword__title').text('Редактирование кроссворда');
@@ -649,8 +623,6 @@
   		} else {
   			createNewCross(); 
   		}
-  		// console.log(id);
-
   	}  	
   	
 
